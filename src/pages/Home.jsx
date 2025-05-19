@@ -11,7 +11,6 @@ import supabase from "../backend/initSupabase";
 import BestSellerCarousel from "../components/BestSellerCarousel";
 import CustomerSaying from "../components/CustomerSaying";
 import ChatBubble from "../components/ChatBubble";
-import MyAudioPlayer from "../components/MyAudioPlayer";
 import CarouselPosts from "../components/CarouselPosts";
 
 import EventPopup from "../components/EventPopup";
@@ -82,7 +81,6 @@ function Home() {
         <Preloader />
       ) : (
         <>
-          {/* <MyAudioPlayer /> */}
           <Header currentPage="home" />
           <MainBanner />
           <Features />

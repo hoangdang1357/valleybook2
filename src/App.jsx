@@ -24,76 +24,24 @@ import SetNewPassword from "./pages/SetNewPassword.jsx"; // Điều chỉnh đư
 import ForumPage from "./pages/ForumPage.jsx";
 import { ForumProvider } from "./backend/ForumContext.jsx";
 import ForumDetailPage from "./pages/ForumDetailPage.jsx";
-import BackgroundMusic from "./components/BackgroundMusic.jsx";
 import Confirmation from "./pages/Confirmation";
 import Profile from "./pages/Profile";
 import OrderSuccess from "./pages/OrderSuccess";
 import OrderTracking from "./pages/OrderTracking";
 import OrderList from "./pages/OrderList";
 import ScrollToTop from "./components/ScrollToTop.jsx";
+import { scan } from "react-scan";
+import SpecificBook from "./pages/SpecificBook";
 
+scan({
+  enabled: true,
+});
 function App() {
   const audioRef = useRef(null);
-  const [isBackgroundMusicMuted, setIsBackgroundMusicMuted] = useState(false);
-  const [isAudioInitialized, setIsAudioInitialized] = useState(false);
-
-  useEffect(() => {
-    const initializeAudio = () => {
-      if (audioRef.current) {
-        audioRef.current.volume = 0.55;
-        setIsAudioInitialized(true);
-      }
-    };
-
-    // Initialize on mount
-    initializeAudio();
-
-    // Also initialize when audioRef changes
-    if (audioRef.current) {
-      initializeAudio();
-    }
-  }, [audioRef.current]);
-
-  const handleBackgroundMusic = (action) => {
-    if (!audioRef.current || !isAudioInitialized) {
-      console.error("Audio not initialized yet");
-      return;
-    }
-
-    try {
-      if (action === "pause") {
-        console.log("Pausing background music");
-        audioRef.current.pause();
-        setIsBackgroundMusicMuted(true);
-      } else if (action === "play") {
-        console.log("Playing background music");
-        const playPromise = audioRef.current.play();
-        if (playPromise !== undefined) {
-          playPromise
-            .then(() => {
-              setIsBackgroundMusicMuted(false);
-            })
-            .catch((error) => {
-              console.error("Playback failed:", error);
-            });
-        }
-      }
-    } catch (error) {
-      console.error("Error controlling background music:", error);
-    }
-  };
 
   return (
     <AuthProvider>
       <BrowserRouter basename="/">
-        <div>
-          <BackgroundMusic
-            ref={audioRef}
-            muted={isBackgroundMusicMuted}
-            onInit={() => setIsAudioInitialized(true)}
-          />
-        </div>
-        <ScrollToTop />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/contact" element={<Contact />} />
@@ -105,18 +53,9 @@ function App() {
               </BookProvider>
             }
           />
-          <Route
-            path="/shop/:id"
-            element={
-              <ProductDetails
-                onMusicControl={
-                  isAudioInitialized ? handleBackgroundMusic : null
-                }
-              />
-            }
-          />
+          <Route path="/shop/:id" element={<ProductDetails />} />
           {/* <Route path="/admin/books/:id" element={<Cart />} /> */}
-
+          <Route path="/specificBook" element={<SpecificBook />} />
           {/* <Route path="/admin/books/:id" element={<EditBook />} /> */}
           {/* <Route path="/admin/accounts/:id" element={<EditAccount />} />{" "}
           <Route path="/admin/orders/:id" element={<EditOrder />} />{" "}

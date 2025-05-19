@@ -20,7 +20,7 @@ export default function ChatBubble() {
   const chatBubbleRef = useRef(null);
 
   useEffect(() => {
-    const userId = userInfo ? userInfo.email :getAnonymousUserId();
+    const userId = userInfo ? userInfo.email : getAnonymousUserId();
     setAnonymousUserId(userId);
     console.log("Anonymous User ID:", userId);
   }, []);
@@ -253,7 +253,6 @@ export default function ChatBubble() {
       {/* Chat window */}
       <div className={`chat-window ${open ? "open" : ""}`} ref={chatWindowRef}>
         <div style={{ padding: "10px", borderBottom: "1px solid #ddd" }}>
-          <strong>Hỗ trợ trực tuyến</strong>
           <span
             style={{ float: "right", cursor: "pointer", fontSize: "1.2em" }}
             onClick={() => setOpen(false)}

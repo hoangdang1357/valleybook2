@@ -61,7 +61,7 @@ function MainBanner() {
                   transform: "scale(1.2)", // hoặc dùng transform để phóng to
                   cursor: "pointer",
                 }}
-                onClick={() => navigate("/shop")}
+                onClick={() => navigate("/specificBook")}
               />
             </div>
           </div>

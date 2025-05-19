@@ -1,10 +1,5 @@
 import React, { useState } from "react";
-import Preloader from "../components/Preloader";
 import Header from "../components/Header";
-import MainBanner from "../components/MainBanner";
-import Features from "../components/Features";
-import Trending from "../components/Trending";
-import MostPlayed from "../components/MostPlayed";
 import Footer from "../components/Footer";
 import "../../public/assets/css/Contact.css";
 import ChatBubble from "../components/ChatBubble";
@@ -72,29 +67,6 @@ function Contact() {
                         allowFullScreen=""
                         title="Google Map"
                       ></iframe>
-                    </div>
-                  </div>
-                  <div className="col-lg-12">
-                    <div
-                      className="owl-container"
-                      onMouseEnter={() => setShowMessage(true)}
-                      onMouseLeave={() => setShowMessage(false)}
-                    >
-                      <img
-                        src="https://asrqcfdysjuddpjxnnkx.supabase.co/storage/v1/object/public/image//cu_sach.png"
-                        alt="Cú Sách"
-                        className="owl-img"
-                        style={{
-                          width: "300px",
-                        }}
-                      />
-                      {showMessage && (
-                        <div className="speech-bubble">
-                          Mình là linh vật của Valley Book.
-                          <br />
-                          Bạn cần tìm sách gì?
-                        </div>
-                      )}
                     </div>
                   </div>
                 </div>

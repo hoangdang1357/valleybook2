@@ -1,10 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import bookLogo from "/assets/images/bookLogo.png";
-
+import ScrollToTop from "./ScrollToTop";
 export default function Footer() {
   return (
     <>
+      <ScrollToTop />
       <div
         className="first-footer d-flex"
         style={{

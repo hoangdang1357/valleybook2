@@ -20,6 +20,7 @@
     "react-bootstrap": "^2.10.9",
     "react-dom": "^19.1.0",
     "react-router-dom": "^7.5.0",
+    "react-scan": "^0.3.4",
     "react-slick": "^0.30.3",
     "slick-carousel": "^1.8.1",
     "supabase": "^2.22.12",
